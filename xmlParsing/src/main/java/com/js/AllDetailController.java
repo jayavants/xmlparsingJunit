@@ -28,6 +28,7 @@ public class AllDetailController extends HttpServlet {
     public void init() {
     	
     
+    	 System.out.println("create db object");
     	 this.dao = dao.getDaoObj();
     }
 
