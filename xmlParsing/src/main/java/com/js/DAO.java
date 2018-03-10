@@ -135,6 +135,22 @@ public class DAO {
 	}
 	
 	
+	public void deleteRecord(int rollno) {
+		
+		try {
+			
+			st = conn.createStatement();
+			
+			st.executeUpdate("delete from Student where rollno = "+rollno);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
 	
 	public void connectionClose() {
 		

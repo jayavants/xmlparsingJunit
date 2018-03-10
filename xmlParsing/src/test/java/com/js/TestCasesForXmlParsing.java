@@ -8,6 +8,7 @@ import static org.junit.Assert.fail;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -24,9 +25,11 @@ public class TestCasesForXmlParsing {
 
 	@AfterClass
 	public static void dbConnectionClose() {
-		
+	
+		dao.deleteRecord(1002);
 		dao.connectionClose();
 	}
+	
 	
 	@Test
 	public void singleRecord() {
@@ -47,13 +50,13 @@ public class TestCasesForXmlParsing {
 		assertNotNull(studlist);
 	}
 	
-	
+	@Test
 	public void insertStudentRecord() {
 		
 		Student studInsert = new Student();
 		studInsert.setName("testName");
 		studInsert.setCity("testCity");
-		studInsert.setRollno(551);
+		studInsert.setRollno(1002);
 		boolean flag = dao.setStudentInfo(studInsert);
 		
 		assertTrue(flag);
